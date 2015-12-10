@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">atk</string>
+    <string name="empty"></string>
+    <string name="action_cancel">Cancel</string>
+    <string name="onDoubleBackExitText">Press once again to exit!</string>
+</resources>

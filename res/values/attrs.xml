@@ -1,0 +1,28 @@
+<resources>
+
+    <attr name="black" format="reference|color" />
+    <attr name="white" format="reference|color" />
+    <attr name="blue_medium" format="reference|color" />
+    <attr name="blue_dark" format="reference|color" />
+    <attr name="orange_dark" format="reference|color" />
+    <attr name="orange_light" format="reference|color" />
+    <attr name="red" format="reference|color" />
+    <attr name="blue" format="reference|color" />
+    <attr name="green" format="reference|color" />
+    <attr name="green_light" format="reference|color" />
+    <attr name="orange" format="reference|color" />
+    <attr name="purple" format="reference|color" />
+    <attr name="purple_transparent" format="reference|color" />
+    <attr name="green_transparent" format="reference|color" />
+    <attr name="red_transparent" format="reference|color" />
+    <attr name="blue_transparent" format="reference|color" />
+    <attr name="orange_transparent" format="reference|color" />
+    <attr name="green_light_transparent" format="reference|color" />
+    <attr name="orange_dark_transparent" format="reference|color" />
+    <attr name="orange_light_transparent" format="reference|color" />
+    <attr name="blue_medium_transparent" format="reference|color" />
+    <attr name="blue_dark_transparent" format="reference|color" />
+    
+    <attr name="textColor" format="reference|color" />
+
+</resources>
