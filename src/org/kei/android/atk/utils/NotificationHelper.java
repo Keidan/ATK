@@ -46,11 +46,10 @@ public class NotificationHelper {
   }
 
   public void hide() {
-    if (notificationManager == null)
+    if (notify == null)
       return;
     notificationManager.cancel(nfyId);
     notify = null;
-    notificationManager = null;
   }
 
   public void update(final String message) {
@@ -58,7 +57,7 @@ public class NotificationHelper {
   }
 
   public void update(final String title, final String message) {
-    if (notificationManager == null) return;
+    if (notify == null) return;
     final RemoteViews contentView = new RemoteViews(c.getPackageName(),
         org.kei.android.atk.R.layout.notifications);
     boolean change = false;
