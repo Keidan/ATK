@@ -35,6 +35,7 @@ public class Color {
   public static final int GREEN                    = R.color.green;
   public static final int BLUE                     = R.color.blue;
   public static final int GREEN_LIGHT              = R.color.green_light;
+  public static final int GREEN_DARK               = R.color.green_dark;
   public static final int PURPLE                   = R.color.purple;
   
   public static final int BLUE_TRANSPARENT         = R.color.blue_transparent;
@@ -47,6 +48,7 @@ public class Color {
   public static final int ORANGE_DARK_TRANSPARENT  = R.color.orange_dark_transparent;
   public static final int ORANGE_LIGHT_TRANSPARENT = R.color.orange_light_transparent;
   public static final int GREEN_LIGHT_TRANSPARENT  = R.color.green_light_transparent;
+  public static final int GREEN_DARK_TRANSPARENT   = R.color.green_dark_transparent;
   
   private Context         ctx                      = null;
 

@@ -11,6 +11,7 @@
     <color name="green_light">#FF99CC00</color>
     <color name="orange">#FFFFBB33</color>
     <color name="purple">#FFAA66CC</color>
+    <color name="green_dark">#FF006400</color>
     
     <color name="purple_transparent">#80AA66CC</color>
     <color name="green_transparent">#803BC600</color>
@@ -22,4 +23,5 @@
     <color name="orange_light_transparent">#80FFC466</color>
     <color name="blue_medium_transparent">#804A9EDB</color>
     <color name="blue_dark_transparent">#80397AA8</color>
+    <color name="green_dark_transparent">#80006400</color>
 </resources>

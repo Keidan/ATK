@@ -10,6 +10,7 @@
     <attr name="blue" format="reference|color" />
     <attr name="green" format="reference|color" />
     <attr name="green_light" format="reference|color" />
+    <attr name="green_dark" format="reference|color" />
     <attr name="orange" format="reference|color" />
     <attr name="purple" format="reference|color" />
     <attr name="purple_transparent" format="reference|color" />
@@ -22,6 +23,7 @@
     <attr name="orange_light_transparent" format="reference|color" />
     <attr name="blue_medium_transparent" format="reference|color" />
     <attr name="blue_dark_transparent" format="reference|color" />
+    <attr name="green_dark_transparent" format="reference|color" />
     
     <attr name="textColor" format="reference|color" />
 
