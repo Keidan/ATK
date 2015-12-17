@@ -72,16 +72,18 @@ public class NotificationHelper {
       change = true;
     }
     if (change) {
-      notify.contentView = contentView;
-      notificationManager.notify(nfyId, notify);
+      update(contentView);
     }
   }
+  
+  public void update(final RemoteViews contentView) {
+    if (notify == null) return;
+    notify.contentView = contentView;
+    notificationManager.notify(nfyId, notify);
+  }
 
-  @SuppressWarnings("deprecation")
   public void show(final int icon, final String ticker, final String title,
       final String message, final PendingIntent contentIntent) {
-    final long when = System.currentTimeMillis();
-    notify = new Notification(icon, ticker, when);
     final RemoteViews contentView = new RemoteViews(c.getPackageName(),
         org.kei.android.atk.R.layout.notifications);
     // Locate and set the Image into customnotificationtext.xml ImageViews
@@ -89,8 +91,13 @@ public class NotificationHelper {
     // Locate and set the Text into customnotificationtext.xml TextViews
     contentView.setTextViewText(org.kei.android.atk.R.id.title, title);
     contentView.setTextViewText(org.kei.android.atk.R.id.text, message);
-    
-    
+    show(contentView, icon, ticker, contentIntent);
+  }
+  
+  @SuppressWarnings("deprecation")
+  public void show(final RemoteViews contentView, final int icon, final String ticker, final PendingIntent contentIntent) {
+    final long when = System.currentTimeMillis();
+    notify = new Notification(icon, ticker, when);
     notify.contentView = contentView;
     notify.contentIntent = contentIntent;
     // Do not clear the notification
