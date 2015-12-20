@@ -11,6 +11,9 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 /**
  *******************************************************************************
@@ -100,5 +103,11 @@ public class Fx {
   public static void switchTheme(final Activity a, final int theme, final boolean restart) {
     a.setTheme(theme);
     if(restart) Tools.restartApplication(a);
+  }
+  
+  public static void setVisibilityAnimation(View v, int visibility, int animId) {
+    Animation anim = AnimationUtils.loadAnimation(v.getContext().getApplicationContext(), animId);
+    v.setAnimation(anim);
+    v.setVisibility(visibility);
   }
 }
