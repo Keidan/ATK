@@ -104,9 +104,32 @@ public class Fx {
     a.setTheme(theme);
     if(restart) Tools.restartApplication(a);
   }
-  
-  public static void setVisibilityAnimation(View v, int visibility, int animId) {
+
+  public static void setVisibilityAnimation(final View v, final int visibility, final int animId) {
     Animation anim = AnimationUtils.loadAnimation(v.getContext().getApplicationContext(), animId);
+    v.setAnimation(anim);
+    v.setVisibility(visibility);
+  }
+
+  public static void setVisibilityAnimationSync(final View owner, final View v,
+      final int visibility, final int animId) {
+    owner.setEnabled(false);
+    Animation anim = AnimationUtils.loadAnimation(v.getContext()
+        .getApplicationContext(), animId);
+    anim.setAnimationListener(new Animation.AnimationListener() {
+      @Override
+      public void onAnimationStart(Animation arg0) {
+      }
+      
+      @Override
+      public void onAnimationRepeat(Animation arg0) {
+      }
+      
+      @Override
+      public void onAnimationEnd(Animation arg0) {
+        owner.setEnabled(true);
+      }
+    });
     v.setAnimation(anim);
     v.setVisibility(visibility);
   }
