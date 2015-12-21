@@ -83,9 +83,9 @@ public class Tools {
     toast.show();
   }
 
-  public static void showAlertDialog(final Activity a, final String title,
+  public static void showAlertDialog(final Context c, final String title,
       final String message) {
-    AlertDialog alertDialog = new AlertDialog.Builder(a).create();
+    AlertDialog alertDialog = new AlertDialog.Builder(c).create();
     alertDialog.setTitle(title);
     alertDialog.setMessage(message);
     alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
@@ -97,10 +97,10 @@ public class Tools {
     alertDialog.show();
   }
 
-  public static void showConfirmDialog(final Activity a, final String title,
+  public static void showConfirmDialog(final Context c, final String title,
       String message, final android.view.View.OnClickListener yes,
       final android.view.View.OnClickListener no) {
-    new AlertDialog.Builder(a)
+    new AlertDialog.Builder(c)
     .setTitle(title)
     .setMessage(message)
     .setIcon(android.R.drawable.ic_dialog_alert)
