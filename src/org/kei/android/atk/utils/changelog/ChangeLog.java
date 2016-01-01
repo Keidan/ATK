@@ -19,6 +19,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import org.kei.android.atk.utils.fx.Fx;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -141,7 +143,7 @@ public class ChangeLog {
     wv.loadDataWithBaseURL(null, this.getLog(full), "text/html", "UTF-8", null);
 
     final AlertDialog.Builder builder = new AlertDialog.Builder(
-        new ContextThemeWrapper(this.context, android.R.style.Theme_Dialog));
+        new ContextThemeWrapper(this.context, Fx.getCurrentThemeId(context)));
     builder
         .setTitle(
             context.getResources().getString(
