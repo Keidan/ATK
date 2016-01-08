@@ -27,14 +27,21 @@ import android.widget.Button;
  */
 public class DialogHelper {
   
+
+  public static void showCustomDialog(final Context owner, final int layout,
+      final String title, final IDialog action, final Object model, final int idOk, final int idCancel) {
+    showCustomDialog(owner, layout, title, 0, action, model, idOk, idCancel);
+  }
   
   public static void showCustomDialog(final Context owner, final int layout,
       final String title, final int titleColor, final IDialog action, final Object model, final int idOk, final int idCancel) {
     final DialogBuilder dialogBuilder = new DialogBuilder(owner).
-        setTitle(title).
-        setTitleColor(titleColor).
-        setDividerColor(titleColor).
-        setCustomView(layout, owner);
+        setTitle(title);
+    if(titleColor != 0) {
+      dialogBuilder.setTitleColor(titleColor);
+      dialogBuilder.setDividerColor(titleColor);
+    }
+    dialogBuilder.setCustomView(layout, owner);
     final Dialog dialog = dialogBuilder.create();
     
     final Button dialogButtonOk = (Button) dialogBuilder.getView().findViewById(idOk);
@@ -54,6 +61,5 @@ public class DialogHelper {
     action.doLoad(dialogBuilder.getView(), model);
     dialog.show();
   }
-  
   
 }
