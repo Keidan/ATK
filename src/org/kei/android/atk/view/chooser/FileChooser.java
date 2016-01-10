@@ -45,6 +45,7 @@ public class FileChooser extends EffectListActivity {
   public static final String            FILECHOOSER_SHOW_KEY                 = "show";
   public static final String            FILECHOOSER_FILE_FILTER_KEY          = "file_filter";
   public static final String            FILECHOOSER_DEFAULT_DIR              = "default_dir";
+  public static final String            FILECHOOSER_USER_MESSAGE             = "user_message";
   public static final int               FILECHOOSER_TYPE_FILE_ONLY           = 0;
   public static final int               FILECHOOSER_TYPE_DIRECTORY_ONLY      = 1;
   public static final int               FILECHOOSER_TYPE_FILE_AND_DIRECTORY  = 2;
@@ -56,6 +57,7 @@ public class FileChooser extends EffectListActivity {
   private FileArrayAdapter              adapter                              = null;
   private String                        confirmMessage                       = null;
   private String                        confirmTitle                         = null;
+  private String                        userMessage                          = null;
   private String                        fileFilter                           = FILECHOOSER_FILE_FILTER_ALL;
   private int                           type                                 = FILECHOOSER_TYPE_FILE_AND_DIRECTORY;
   private int                           show                                 = FILECHOOSER_SHOW_FILE_AND_DIRECTORY;
@@ -118,6 +120,8 @@ public class FileChooser extends EffectListActivity {
       fileFilter = b.getString(FILECHOOSER_FILE_FILTER_KEY);
     if (b != null && b.containsKey(FILECHOOSER_DEFAULT_DIR))
       defaultDir = new File(b.getString(FILECHOOSER_DEFAULT_DIR));
+    if (b != null && b.containsKey(FILECHOOSER_USER_MESSAGE))
+      userMessage = b.getString(FILECHOOSER_USER_MESSAGE);
     if(defaultDir == null) defaultDir = Tools.DEFAULT_ROOT;
     if(confirmTitle == null) confirmTitle = "title";
     if(confirmMessage == null) confirmMessage = "message";
@@ -192,5 +196,9 @@ public class FileChooser extends EffectListActivity {
   }
 
   protected void onFileSelected(final Option opt) {
+  }
+
+  public String getUserMessage() {
+    return userMessage;
   }
 }

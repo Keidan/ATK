@@ -10,7 +10,6 @@ import org.kei.android.atk.view.chooser.handler.ProcessHandler;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -37,7 +36,6 @@ import android.view.MenuItem;
  *******************************************************************************
  */
 public class FileChooserActivity extends FileChooser implements IProcessHandler {
-  private static final String TAG                                  = FileChooserActivity.class.getSimpleName();
   public static final String  FILECHOOSER_SELECTION_KEY            = "selection";
   public static final int     FILECHOOSER_SELECTION_TYPE_FILE      = 1;
   public static final int     FILECHOOSER_SELECTION_TYPE_DIRECTORY = 2;
@@ -111,16 +109,16 @@ public class FileChooserActivity extends FileChooser implements IProcessHandler 
 
   @Override
   public void onSuccess() {
-    Log.d(TAG, "onSuccess: Rebuild the hmi");
     final Intent returnIntent = new Intent();
     int result = RESULT_CANCELED;
     if (opt != null) {
       final File file = new File(new File(opt.getPath()).getParent(),
           opt.getName());
       returnIntent.putExtra(FILECHOOSER_SELECTION_KEY, file.getAbsolutePath());
+      if(getUserMessage() != null)
+        returnIntent.putExtra(FILECHOOSER_USER_MESSAGE, getUserMessage());
       result = RESULT_OK;
     }
-    Log.d(TAG, "Send result");
     setResult(result, returnIntent);
     opt = null;
     cancel();
@@ -134,9 +132,7 @@ public class FileChooserActivity extends FileChooser implements IProcessHandler 
   @Override
   public void onError() {
     opt = null;
-    Log.d(TAG, "onError: bye :(");
     final Intent returnIntent = new Intent();
-    Log.d(TAG, "Send result");
     setResult(RESULT_CANCELED, returnIntent);
     onBackPressed();
   }
