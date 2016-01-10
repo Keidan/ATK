@@ -52,6 +52,8 @@ public class Tools {
   public static final File   DEFAULT_DOWNLOAD = Environment
                                                   .getExternalStoragePublicDirectory(
                                                       Environment.DIRECTORY_DOWNLOADS);
+  public static final int TOAST_LENGTH_SHORT  = Toast.LENGTH_SHORT;
+  public static final int TOAST_LENGTH_LONG   = Toast.LENGTH_LONG;
   
   public static int getPrefInt(final Context c, final String key, final int defValue) {
     SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(c);
@@ -72,8 +74,8 @@ public class Tools {
     a.startActivity(i);
   }
   
-  public static void toast(final Context context, int icon, CharSequence message) {
-    Toast toast = Toast.makeText(context, message, Toast.LENGTH_SHORT);
+  public static void toast(final Context context, int icon, CharSequence message, int delay) {
+    Toast toast = Toast.makeText(context, message, delay);
     TextView tv = (TextView) toast.getView().findViewById(android.R.id.message);
     if (null!=tv) {
       Drawable drawable = Fx.getDrawable(context, icon);
@@ -81,6 +83,10 @@ public class Tools {
       tv.setCompoundDrawablePadding(5);
     }
     toast.show();
+  }
+  
+  public static void toast(final Context context, int icon, CharSequence message) {
+    toast(context, icon, message, TOAST_LENGTH_SHORT);
   }
 
   public static void showAlertDialog(final Context c, final String title,
