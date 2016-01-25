@@ -11,13 +11,16 @@ import org.kei.android.atk.utils.fx.Fx;
 import org.kei.android.atk.view.IThemeActivity;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.AlertDialog;
+import android.app.ActivityManager.RunningServiceInfo;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Environment;
+import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.TextView;
@@ -128,6 +131,25 @@ public class Tools {
       return true;
     else
       return false;
+  }
+  
+  @SuppressWarnings("deprecation")
+  public static boolean isScreenOn(final Context context) {
+    final PowerManager pm = (PowerManager) context
+        .getSystemService(Context.POWER_SERVICE);
+    return pm.isScreenOn();
+  }
+  
+  public static boolean isServiceRunning(final Context context,
+      final Class<?> serviceClass) {
+    final ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+    for (final RunningServiceInfo service : manager
+        .getRunningServices(Integer.MAX_VALUE)) {
+      if (serviceClass.getName().equals(service.service.getClassName())) {
+        return true;
+      }
+    }
+    return false;
   }
 
   public static <T extends Activity & IThemeActivity> void switchTo(final T activity, final Class<?> c) {
